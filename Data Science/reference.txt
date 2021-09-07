@@ -1,0 +1,63 @@
+Reference to the Data Science process
+
+exploratory analysis
+    see distribution of dataset
+        df.describe()
+    
+    
+clean the dataset
+    inaccurate data
+    repeated data (if necessary)
+    missing data (fill or leave empty)
+    discretize data (numerical to categorical)
+    normalize dataset to have 0 mean, 1 variance by train
+        from sklearn import preprocessing
+        norm = preprocessing.scale(data)
+    
+feature extraction
+    create new (but relevant) features (i.e. duration = end_date - start_date)
+    human-remove features think is unimportant (save compute time)
+    
+data processing
+    remove noise
+        remove outliers (if needed)
+            consider range of 1% to 99%
+        use auto-encoders
+    feature augmentation
+        polynomial augmentation for more complex model
+            add transformed features by exp, log, cos.
+    split to train & test (if needed)
+    
+training
+    hyperparameter optimization (i.e. elbow rule for k-means)
+        consider brute-force otherwise
+    
+evaluation
+    create visualizations
+    cross-validation for unseen data
+        tran/validation split (k-fold split)
+    
+start with questions
+    list all the wants (before seeing dataset)
+    list new wants seeing the dataset
+    clear the unlikely answerable questions during data-cleaning
+    pick appropriate model for question
+    
+keep in mind
+    unbiased during analytics and construction
+    document notes along the entire process (unexpected finds, explainations)
+    
+    
+consider
+    Bayesian Case Model: using mixture model and set of features that are important for each cluster
+    Mind Gap Model: using extractive and selective methods, reports global set of distinguishable dimensions from data
+    
+embedding (non-numerical to numerical)
+    PCA: capture data variation in few dimensions as possible, use when strong linear relationship exist in variables
+    t-SNE: dimensionality reduction preserving local neighbourhoods, could distort global structure
+    topological data analysis: geometric features preserved when deforming (not tearing)
+        finding distinct clusters, loops, tendrils
+        mapper-algorithm
+        
+if big dataset, then use representative examples
+if wide dataset, then select important dimensions
